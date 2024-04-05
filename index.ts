@@ -30,6 +30,10 @@ class SportlinkStand extends LitElement {
       clip: rect(0,0,0,0);
       border: 0;
     }
+
+    .tabel-eigen-team {
+      font-weight: 600;
+    }
   `;
 
   @property()
@@ -93,16 +97,16 @@ class SportlinkStand extends LitElement {
           <td class="tabel-pos">
             ${team.positie}
           </td>
-          <td class="tabel-team">            
+          <td class="tabel-team ${team.eigenteam === "true" ? "tabel-eigen-team": null}">            
             ${team.teamnaam}
           </td>
-          <td class="tabel-gs">
+          <td class="tabel-gs ${team.eigenteam === "true" ? "tabel-eigen-team": null}">
             ${team.aantalwedstrijden}
           </td>
-          <td class="tabel-ds">
+          <td class="tabel-ds ${team.eigenteam === "true" ? "tabel-eigen-team": null}">
             ${team.doelsaldo}
           </td>
-          <td class="tabel-pt">
+          <td class="tabel-pt ${team.eigenteam === "true" ? "tabel-eigen-team": null}">
             ${team.totaalpunten}
           </td>
         </tr>
@@ -114,7 +118,7 @@ class SportlinkStand extends LitElement {
     return html`
       <h2>Periodestand</h2>
       <table class="tabel-stand">
-      <caption class="sr-only">Stand //to do dynamic</caption>
+      <caption class="">Stand //to do dynamic , add sr-only</caption>
       <thead>
         <tr>
           <td class="tabel-pos"><span class="sr-only">Positie</span></td>
