@@ -1,0 +1,10 @@
+body {
+    background:#efefef;
+}
+
+
+sportlink-wedstrijd {
+    --sportlink-wedstrijd-font-family: Arial;
+    --sportlink-wedstrijd-font-family-header: Courier;
+    --sportlink-wedstrijd-text-align: center;
+}
