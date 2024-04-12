@@ -40,7 +40,9 @@ class SportlinkStand extends LitElement {
   clientId?: string;
 
   @property()
-  pouleCode?: string;
+  teamCode?: string;
+
+  private pouleCode? :string
 
   @property()
   loading: boolean = true;
@@ -65,20 +67,41 @@ class SportlinkStand extends LitElement {
     });
   }
 
+  private async getPouleCode() {
+    const url: URL = new URL(`${this.URL}/teampoulelijst`);
+    url.searchParams.append("client_id", this.clientId as unknown as string);
+    url.searchParams.append("teamcode", this.teamCode as unknown as string);
+    url.searchParams.append("lokaleteamcode", "-1");
+    return await fetch(url).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return new Error("error in call");
+      }
+    });
+  }
+
   private async getMeta() {
     const metaEls = document.getElementsByTagName("meta");
     this.clientId =
       this.clientId !== undefined
         ? this.clientId
         : metaEls.namedItem("clientId")?.content;
-    this.pouleCode =
-      this.pouleCode !== undefined
-        ? this.pouleCode
-        : metaEls.namedItem("pouleCode")?.content;
+    this.teamCode =
+      this.teamCode !== undefined
+        ? this.teamCode
+        : metaEls.namedItem("teamCode")?.content;
 
-    if (!this.clientId || !this.pouleCode) {
+    if (!this.clientId || !this.teamCode) {
       this.error = true;
     } else {
+      const poules = await this.getPouleCode();
+      if (poules) {
+        const poule = poules.find((poule: any) => {
+          return !poule.teamnaam.includes("KNVB")
+        })
+        this.pouleCode = poule.poulecode;
+      }
       this.data = await this.getData();
       this.loading = false;
     }
@@ -142,7 +165,7 @@ class SportlinkStand extends LitElement {
             ${this.renderTable()}
           </div>
         `
-      : html` <p>Er is geen eerstvolgende wedstrijd bekend</p> `;
+      : html` <p>Er is geen stand bekend</p> `;
   }
 
   render(): any {

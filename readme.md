@@ -3,11 +3,11 @@
 It is a webcomponent for displaying the standings from a amateurteam in the Netherlands. It needs a clientId for sportlink and a pouleCode. This code can be as meta element or as property.
 
 ### meta
-`<meta name="pouleCode" content="[yourcontent]" />`
+`<meta name="teamCode" content="[yourcontent]" />`
 `<meta name="clientId" content="[yourcontent]" />`
 
 ### property
-`<sportlink-stand clientId="[yourcontent]" pouleCode="[yourcontent]"></sportlink-stand>`
+`<sportlink-stand clientId="[yourcontent]" teamCode="[yourcontent]"></sportlink-stand>`
 
 
 ### Properties
@@ -15,7 +15,7 @@ It is a webcomponent for displaying the standings from a amateurteam in the Neth
 | Property    | Value |
 | -------- | ------- |
 | clientId  | [your_id] |
-| pouleCode  | [your_id] |
+| teamCode  | [your_id] |
 
 
 ### css vars
