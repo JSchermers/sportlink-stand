@@ -119,9 +119,13 @@ class SportlinkStand extends LitElement {
           return !poule.teamnaam.includes("KNVB")
         })
         this.pouleCode = poule.poulecode;
+        this.data = await this.getData();
+        this.loading = false;
       }
-      this.data = await this.getData();
-      this.loading = false;
+      else {
+        this.error = true;
+      }
+
     }
   }
 
