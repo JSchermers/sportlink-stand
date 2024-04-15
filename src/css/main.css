@@ -3,8 +3,12 @@ body {
 }
 
 
-sportlink-wedstrijd {
-    --sportlink-wedstrijd-font-family: Arial;
-    --sportlink-wedstrijd-font-family-header: Courier;
-    --sportlink-wedstrijd-text-align: center;
+sportlink-stand {
+    --sportlink-wedstrijd-tabel-header-font-weight: 600;
+    --sportlink-wedstrijd-tabel-font-family: Courier;
+    --sportlink-wedstrijd-titel-font-family: Courier;
+    --sportlink-wedstrijd-titel-font-weight: 400;
+    --sportlink-wedstrijd-titel-font-size: 14px;
+    --sportlink-wedstrijd-titel-text-align: center;
+    --sportlink-wedstrijd-eigenteam-font-weight: 600;
 }

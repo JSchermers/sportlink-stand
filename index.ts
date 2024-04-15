@@ -4,6 +4,13 @@ import { customElement, property } from "lit/decorators.js";
 @customElement("sportlink-stand")
 class SportlinkStand extends LitElement {
   static styles = css`
+  thead .tabel-gs,
+  thead .tabel-ds,
+  thead .tabel-pt,
+  thead .tabel-team {
+    font-weight: var(--sportlink-wedstrijd-tabel-header-font-weight, 600)
+  }
+
     .tabel-gs,
     .tabel-ds,
     .tabel-pt {
@@ -17,7 +24,8 @@ class SportlinkStand extends LitElement {
 
     .tabel-stand {
       width: 100%;
-      max-width: 20rem
+      max-width: 20rem;
+      font-family: var(--sportlink-wedstrijd-tabel-font-family, inherit)
     }
 
     .sr-only {
@@ -32,7 +40,14 @@ class SportlinkStand extends LitElement {
     }
 
     .tabel-eigen-team {
-      font-weight: 600;
+      font-weight: var(--sportlink-wedstrijd-eigenteam-font-weight, 600);
+    }
+
+    .titel {
+      font-family: var(--sportlink-wedstrijd-titel-font-family, inherit);
+      font-weight: var(--sportlink-wedstrijd-titel-font-weight, inherit);
+      font-size: var(--sportlink-wedstrijd-titel-font-size, inherit);
+      text-align: var(--sportlink-wedstrijd-titel-text-align, start);
     }
   `;
 
@@ -41,6 +56,9 @@ class SportlinkStand extends LitElement {
 
   @property()
   teamCode?: string;
+
+  @property()
+  titel?: string;
 
   private pouleCode? :string
 
@@ -139,9 +157,9 @@ class SportlinkStand extends LitElement {
 
   private renderTable() {
     return html`
-      <h2>Periodestand</h2>
+      <h2 class="titel">${this.titel ? this.titel : `Periodestand`}</h2>
       <table class="tabel-stand">
-      <caption class="">Stand //to do dynamic , add sr-only</caption>
+      <caption class="sr-only">Stand </caption>
       <thead>
         <tr>
           <td class="tabel-pos"><span class="sr-only">Positie</span></td>

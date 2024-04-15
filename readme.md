@@ -16,12 +16,20 @@ It is a webcomponent for displaying the standings from a amateurteam in the Neth
 | -------- | ------- |
 | clientId  | [your_id] |
 | teamCode  | [your_id] |
+| titel  | titel from component |
 
 
 ### css vars
 
 | Property    | Default Value |
 | -------- | ------- |
+| --sportlink-wedstrijd-tabel-header-font-weight | 600 |
+| --sportlink-wedstrijd-eigenteam-font-weight | 600 |
+| --sportlink-wedstrijd-tabel-font-family | inherit |
+| --sportlink-wedstrijd-titel-font-family | inherit |
+| --sportlink-wedstrijd-titel-font-weight | inherit |
+| --sportlink-wedstrijd-titel-font-size | inherit |
+| --sportlink-wedstrijd-titel-text-align | start |
 
 
 ### This component is in beta mode and not production ready
