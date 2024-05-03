@@ -36,4 +36,4 @@ It is a webcomponent for displaying the standings from a amateurteam in the Neth
 
 | SLOTName | Position |
 | slot="title" | Title above the players |
-| slot="ally_title" | Title for table for accessability |
+| slot="ally_title" | Title for table for accessibility |
