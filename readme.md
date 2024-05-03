@@ -32,4 +32,8 @@ It is a webcomponent for displaying the standings from a amateurteam in the Neth
 | --sportlink-wedstrijd-titel-text-align | start |
 
 
-### This component is in beta mode and not production ready
+### SLOTTED
+
+| SLOTName | Position |
+| slot="title" | Title above the players |
+| slot="ally_title" | Title for table for accessability |
