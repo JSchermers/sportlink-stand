@@ -57,9 +57,6 @@ class SportlinkStand extends LitElement {
   @property()
   teamCode?: string;
 
-  @property()
-  titel?: string;
-
   private pouleCode? :string
 
   @property()
@@ -161,7 +158,7 @@ class SportlinkStand extends LitElement {
 
   private renderTable() {
     return html`
-      <h2 class="titel">${this.titel ? this.titel : `Periodestand`}</h2>
+      <h2 class="titel"><slot name="title"></slot></h2>
       <table class="tabel-stand">
       <caption class="sr-only">Stand </caption>
       <thead>
