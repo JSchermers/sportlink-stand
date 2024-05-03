@@ -160,7 +160,7 @@ class SportlinkStand extends LitElement {
     return html`
       <h2 class="titel"><slot name="title"></slot></h2>
       <table class="tabel-stand">
-      <caption class="sr-only">Stand </caption>
+      <caption class="sr-only"><slot name="ally_title"></slot></caption>
       <thead>
         <tr>
           <td class="tabel-pos"><span class="sr-only">Positie</span></td>
@@ -184,12 +184,12 @@ class SportlinkStand extends LitElement {
             ${this.renderTable()}
           </div>
         `
-      : html` <p>Er is geen stand bekend</p> `;
+      : html` <p><slot name="nostandings">Er is geen stand bekend.</slot></p> `;
   }
 
   render(): any {
     return this.error
-      ? html`<div>Er is helaas iets misgegaan</div>`
+      ? html`<div><slot name="error">Helaas, er is iets misgegaan.</slot></div>`
       : this.loading
         ? html` <div>loading</div>`
         : this.renderStand();
